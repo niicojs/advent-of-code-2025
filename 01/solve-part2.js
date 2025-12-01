@@ -19,11 +19,9 @@ for (const line of lines) {
   const turn = line[0];
   let n = +line.slice(1);
   let dist = turn === 'L' ? -1 : 1;
-  n = Math.abs(n);
 
   for (let i = 0; i < n; i++) {
-    safe += dist;
-    safe = mod(safe, MAX);
+    safe = mod(safe + dist, MAX);
     if (safe === 0) answer++;
   }
 }
