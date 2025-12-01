@@ -1,0 +1,26 @@
+{
+  "name": "advent-of-code-2017",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "init part1": "node init.js",
+    "init part2": "node init.js part2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120
+  },
+  "dependencies": {
+    "@types/node": "^24.10.0",
+    "clipboardy": "^5.0.1",
+    "consola": "^3.3.0",
+    "dotenv": "^17.2.3",
+    "heap": "^0.2.7",
+    "mri": "^1.2.0",
+    "pymport": "^1.5.1",
+    "remeda": "^2.18.0",
+    "tinyqueue": "^3.0.0",
+    "z3-solver": "^4.13.4"
+  }
+}
