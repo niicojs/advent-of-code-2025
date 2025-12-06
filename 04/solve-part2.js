@@ -1,6 +1,6 @@
 import { consola } from 'consola';
 import clipboard from 'clipboardy';
-import { enumGrid, getCurrentDay, getDataLines, getGrid, getNeighbors, inGridRange, timer } from '../utils.ts';
+import { enum_grid, getCurrentDay, getDataLines, getGrid, get_neighbors, inGridRange, timer } from '../utils.ts';
 
 consola.wrapAll();
 
@@ -13,9 +13,9 @@ const grid = getGrid(getDataLines());
 
 function get_rolls() {
   let removed = 0;
-  for (const { x, y, cell } of enumGrid(grid)) {
+  for (const { x, y, cell } of enum_grid(grid)) {
     if (cell === '@') {
-      const filled = getNeighbors(x, y).filter(([nx, ny]) => inGridRange(grid, nx, ny) && grid[ny][nx] === '@');
+      const filled = get_neighbors(x, y).filter(([nx, ny]) => inGridRange(grid, nx, ny) && grid[ny][nx] === '@');
       if (filled.length < 4) {
         grid[y][x] = '.';
         removed++;

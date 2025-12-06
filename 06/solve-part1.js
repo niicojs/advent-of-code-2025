@@ -1,6 +1,6 @@
 import { consola } from 'consola';
 import clipboard from 'clipboardy';
-import { enum_grid, getCurrentDay, getDataLines, getGrid, get_neighbors, inGridRange, timer } from '../utils.ts';
+import { getCurrentDay, getDataLines, timer } from '../utils.ts';
 
 consola.wrapAll();
 
@@ -9,14 +9,20 @@ const isReal = process.argv.length >= 2 && process.argv[2] === 'real';
 consola.start(`Starting day ${day} (real: ${isReal})`);
 const t = timer();
 
-const grid = getGrid(getDataLines());
+const lines = getDataLines().map((l) => l.split(/\s+/).filter(Boolean));
+const ops = lines.pop();
 
 let answer = 0;
-for (const { x, y, cell } of enum_grid(grid)) {
-  if (cell === '@') {
-    const filled = get_neighbors(x, y).filter(([nx, ny]) => inGridRange(grid, nx, ny) && grid[ny][nx] === '@');
-    if (filled.length < 4) answer++;
+for (let i = 0; i < lines[0].length; i++) {
+  let res = ops[i] === '+' ? 0 : 1;
+  for (let j = 0; j < lines.length; j++) {
+    if (ops[i] === '+') {
+      res += +lines[j][i];
+    } else {
+      res *= +lines[j][i];
+    }
   }
+  answer += res;
 }
 
 consola.success('result', answer);

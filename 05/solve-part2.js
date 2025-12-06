@@ -1,6 +1,6 @@
 import { consola } from 'consola';
 import clipboard from 'clipboardy';
-import { getCurrentDay, getRawData, mergeRanges, timer } from '../utils.ts';
+import { getCurrentDay, getRawData, merge_ranges, timer } from '../utils.ts';
 
 consola.wrapAll();
 
@@ -14,7 +14,7 @@ const [one] = getRawData()
   .split(/\r?\n\r?\n/);
 
 const fresh = one.split(/\r?\n/).map((line) => line.split('-').map(Number));
-const better = mergeRanges(fresh);
+const better = merge_ranges(fresh);
 
 let answer = 0;
 for (const [start, end] of better) {

@@ -57,21 +57,11 @@ export function nums(str: string): number[] {
   return str.match(/-?\d+/g)?.map(Number) || [];
 }
 
-/**
- *
- * @param {any[][]} grid
- * @param {number} x
- * @param {number} y
- * @returns boolean
- */
 export function inGridRange<T>(grid: T[][], x: number, y: number) {
   return y >= 0 && y < grid.length && x >= 0 && x < grid[0].length;
 }
 
-/**
- * @param {any[][]} grid
- */
-export const printGrid = (grid: (string | number)[][], path: [number, number][] | null = null) => {
+export const print_grid = (grid: (string | number)[][], path: [number, number][] | null = null) => {
   const pad = (grid.length - 1).toString().length;
   console.log(''.padStart(pad, ' ') + ' ┌' + '─'.repeat(grid[0].length) + '┐');
   for (let y = 0; y < grid.length; y++) {
@@ -99,7 +89,7 @@ export function* enumerate<T>(enumerable: Iterable<T>): Generator<[number, T]> {
   for (const item of enumerable) yield [i++, item];
 }
 
-export function* enumGrid<T>(grid: T[][]) {
+export function* enum_grid<T>(grid: T[][]) {
   for (const [y, row] of enumerate(grid)) {
     for (const [x, cell] of enumerate(row)) {
       yield { x, y, row, cell };
@@ -121,11 +111,11 @@ export const diagNeighbors = [
 ];
 export const neighbors = [...diagNeighbors, ...directNeighbors];
 
-export function getDirectNeighbors(x: number, y: number) {
+export function get_direct_neighbors(x: number, y: number) {
   return directNeighbors.map(([dx, dy]) => [x + dx, y + dy]);
 }
 
-export function getNeighbors(x: number, y: number) {
+export function get_neighbors(x: number, y: number) {
   return neighbors.map(([dx, dy]) => [x + dx, y + dy]);
 }
 
@@ -229,7 +219,7 @@ export const lacet = (path: [number, number][]) => {
 /**
  * These ranges are inclusive
  */
-export function mergeRanges(ranges: [number, number][]) {
+export function merge_ranges(ranges: [number, number][]) {
   ranges.sort(([min1], [min2]) => min1 - min2);
   const merged = [ranges[0]];
   for (const [min, max] of ranges.slice(1)) {

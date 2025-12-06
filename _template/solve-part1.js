@@ -4,7 +4,7 @@ import TinyQueue from 'tinyqueue';
 import {
   getCurrentDay,
   getDataLines,
-  getDirectNeighbors,
+  get_direct_neighbors,
   getGrid,
   getRawData,
   inGridRange,
@@ -47,7 +47,7 @@ function search() {
     if (visited.has(key(x, y))) continue;
     visited.add(key(x, y));
 
-    const possible = getDirectNeighbors(x, y).filter(([nx, ny]) => inGridRange(grid, nx, ny) && grid[ny][nx] !== '#');
+    const possible = get_direct_neighbors(x, y).filter(([nx, ny]) => inGridRange(grid, nx, ny) && grid[ny][nx] !== '#');
 
     for (const [nx, ny] of possible) {
       todo.push({ pos: [nx, ny], score: score + 1 });
