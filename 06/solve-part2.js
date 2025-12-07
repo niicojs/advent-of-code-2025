@@ -11,7 +11,6 @@ const t = timer();
 
 const lines = getDataLines();
 const ops = lines.pop();
-console.info(lines);
 
 let answer = 0;
 let [i, j, op_idx] = [lines[0].length - 1, 0, lines[0].length];
