@@ -263,7 +263,7 @@ export function solve2eq2inc([a1, b1, c1]: number[], [a2, b2, c2]: number[]): nu
   return [x, y];
 }
 
-export function isPrime(n: number) {
+export function is_prime(n: number) {
   if (isNaN(n) || !isFinite(n) || n % 1 || n < 2) return false;
   if (n % 2 == 0) return n == 2;
   if (n % 3 == 0) return n == 3;
