@@ -13,7 +13,9 @@
 | 09  | 🟩🟩 |
 | 10  | 🟩🟩 |
 | 11  | 🟩🟩 |
-| 12  |       |
+| 12  | 🟩🟩 |
+
+🎄
 
 Useful tools
 - https://www.npmjs.com/package/z3-solver
